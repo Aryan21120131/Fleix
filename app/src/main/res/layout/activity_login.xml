@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_"
+    tools:context=".Activities.LoginActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="0"
+        android:rotationX="0"
+        android:rotationY="0"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_role_login"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:padding="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/user_logo" />
+
+            <Spinner
+                android:id="@+id/role_login"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="clip_horizontal"
+                android:layout_margin="10dp"
+                android:background="@drawable/grad_"
+                android:padding="10dp"
+                android:paddingLeft="50dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/mobile_number_login"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:cursorVisible="true"
+                android:inputType="number"
+                android:itemBackground="@drawable/grad_"
+                android:minHeight="48dp"
+                android:textColor="#9E9E9E"
+                android:textStyle="bold|italic"
+                app:hideLineWhenFilled="true"
+                app:itemCount="10"
+                app:itemHeight="40dp"
+                app:itemRadius="13dp"
+                app:itemSpacing="1dp"
+                app:itemWidth="30dp"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/next_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/grad_"
+                android:text="NEXT"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

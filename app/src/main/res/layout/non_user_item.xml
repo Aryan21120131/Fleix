@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#6100E2FF"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Order_ID_NonUser_Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ORDER ID"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/RecieverName_NonUser_Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/From_NonUser_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FROM"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/To_NonUser_Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TO"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/PhoneNumber_NonUser_Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone No."
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/Update_Status_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:background="@drawable/grad_"
+                android:text="DONE"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

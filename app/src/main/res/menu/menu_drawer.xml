@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="COMMUNICATION"
+        android:id="@+id/menu_communication">
+        <menu>
+            <item
+                android:title="E mail"
+                android:id="@+id/menu_email">
+            </item>
+            <item
+                android:title="CALL"
+                android:id="@+id/menu_call">
+            </item>
+            <item
+                android:title="SMS"
+                android:id="@+id/menu_sms">
+            </item>
+            <item
+                android:title="LOGOUT"
+                android:id="@+id/menu_logout">
+            </item>
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "982907989088",
+    "firebase_url": "https://felix-app-4c8be-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "felix-app-4c8be",
+    "storage_bucket": "felix-app-4c8be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982907989088:android:755f5843f3c4979ce32705",
+        "android_client_info": {
+          "package_name": "com.example.fleix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982907989088-4oc5o678opum9rjtqeqmcoe3le25d15v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fleix",
+            "certificate_hash": "6a7496466a96300fa453f458caf5784706b05917"
+          }
+        },
+        {
+          "client_id": "982907989088-n8lovs99v5oulciu6h6fobu4bt7vpn1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnrs9VKih7hhR4BPMFp3pHsfycAmkVQTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982907989088-n8lovs99v5oulciu6h6fobu4bt7vpn1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
