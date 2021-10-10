@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_"
+    android:background="@drawable/background_img1"
     tools:context=".Activities.MobileNumber">
 
     <androidx.cardview.widget.CardView
@@ -39,9 +39,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/grad_"
+                android:background="@drawable/button"
+                android:fontFamily="casual"
                 android:text="VERIFY"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/Green"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -71,13 +73,14 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/otp_text"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:id="@+id/otp_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:fontFamily="casual"
                 android:text="Enter Phone Number"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"

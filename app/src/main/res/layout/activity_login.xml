@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_"
+    android:background="@drawable/background_img1"
     tools:context=".Activities.LoginActivity">
 
     <androidx.cardview.widget.CardView
@@ -35,7 +35,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/user_logo" />
+                app:srcCompat="@drawable/customer" />
 
             <Spinner
                 android:id="@+id/role_login"
@@ -66,16 +66,18 @@
                 app:itemRadius="13dp"
                 app:itemSpacing="1dp"
                 app:itemWidth="30dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/next_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/grad_"
+                android:background="@drawable/button"
+                android:fontFamily="casual"
                 android:text="NEXT"
-                android:textColor="#FFFFFF" />
+                android:textColor="@color/Green"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

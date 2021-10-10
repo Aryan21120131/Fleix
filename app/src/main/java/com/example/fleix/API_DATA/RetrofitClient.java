@@ -6,7 +6,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    public static String BASE_URL = "https://interncustomerapi.azurewebsites.net/api/";
+
+    public static String BASE_URL = "https://felixianapi.azurewebsites.net/api/";
 
     private static Retrofit getRetrofit() {
 

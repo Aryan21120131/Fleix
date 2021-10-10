@@ -19,7 +19,16 @@ public class OrderDetails {
             senderPhoneNumber,
             pinCode,
             pickUpDate,
-            pickUpTime;
+            pickUpTime,
+            orderAssignId;
+
+    public String getOrderAssignId() {
+        return orderAssignId;
+    }
+
+    public void setOrderAssignId(String orderAssignId) {
+        this.orderAssignId = orderAssignId;
+    }
 
     public int getId() {
         return id;

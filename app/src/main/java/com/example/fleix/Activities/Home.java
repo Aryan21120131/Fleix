@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +14,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.fleix.API_DATA.RetrofitClient;
-import com.example.fleix.Adapters.Adapter;
+import com.example.fleix.Adapters.AdminAdapter;
+import com.example.fleix.Adapters.AirPortManagerAdapter;
 import com.example.fleix.Adapters.FelixStarAdapter;
 import com.example.fleix.Adapters.OrderAdapter;
 import com.example.fleix.Class.OrderDetails;
@@ -42,6 +43,7 @@ public class Home extends AppCompatActivity {
     FloatingActionButton add;
     LinearLayoutManager layoutManager;
     String role;
+    SwipeRefreshLayout refreshLayout;
 
     public static Portfolio portfolio=new Portfolio();
 
@@ -51,12 +53,16 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         hook();
         setNav();
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Home.this,order_step1.class));
-            }
+        refreshLayout.setOnRefreshListener(() -> {
+            setRecyclerViewHome();
+            refreshLayout.setRefreshing(false);
         });
+        if(role.equals("Customer")){
+            add.setVisibility(View.VISIBLE);
+            add.setOnClickListener(view -> startActivity(new Intent(Home.this,order_step1.class)));
+        }else {
+            add.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void setAdminRecyclerView() {
@@ -65,10 +71,25 @@ public class Home extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<OrderDetails>> call, Response<List<OrderDetails>> response) {
                 List<OrderDetails> orderPostList=response.body();
+                List<OrderDetails> orderDetails=new ArrayList<>();
+//                for(int i=0;i<orderPostList.size();i++){
+//                    String Status=orderPostList.get(i).getStatus();
+//                    if(Status.equals("ORDER PLACED")||
+//                            Status.equals("Picked Up")||
+//                            Status.equals("COLLECTED AT WAREHOUSE")||
+//                            Status.equals("RECEIVING FROM AIRCRAFT")||
+//                            Status.equals("COLLECTED AT RECEIVER STATION")){
+//                        orderDetails.add(orderPostList.get(i));
+//                    }
+//                }
+                String[] FelixianList={"000001 : Aman Gupta",
+                        "000002 : Aryan Sharma",
+                        "000003 : Arya Vats",
+                        "000004 : Devansh Shrivastav"};
                 layoutManager = new LinearLayoutManager(Home.this);
                 layoutManager.setOrientation(RecyclerView.VERTICAL);
                 recyclerView.setLayoutManager(layoutManager);
-                Adapter adapter = new Adapter(getApplicationContext(), orderPostList);
+                AdminAdapter adapter = new AdminAdapter(orderPostList, getApplicationContext(),FelixianList);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -78,7 +99,6 @@ public class Home extends AppCompatActivity {
             }
         });
     }
-
     private void setFelixStarRecyclerView() {
         Call<List<OrderDetails>> call= RetrofitClient.getService().getOrderData();
         call.enqueue(new Callback<List<OrderDetails>>() {
@@ -88,8 +108,7 @@ public class Home extends AppCompatActivity {
                 List<OrderDetails> orderDetails=new ArrayList<>();
                 for(int i=0;i<orderPostList.size();i++){
                     String Status=orderPostList.get(i).getStatus();
-                    Toast.makeText(Home.this, Status, Toast.LENGTH_SHORT).show();
-                    if(Status.equals("ORDER INITIATED")||Status.equals("Out for Delivery")){
+                    if(Status.equals("ORDER INITIATED")||Status.equals("OUT FOR DELIVERY")){
                         orderDetails.add(orderPostList.get(i));
                     }
                 }
@@ -107,6 +126,36 @@ public class Home extends AppCompatActivity {
         });
     }
 
+    private void setAirPortManagerRecyclerView() {
+        Call<List<OrderDetails>> call=RetrofitClient.getService().getOrderData();
+        call.enqueue(new Callback<List<OrderDetails>>() {
+            @Override
+            public void onResponse(Call<List<OrderDetails>> call, Response<List<OrderDetails>> response) {
+                List<OrderDetails> orderPostList=response.body();
+                List<OrderDetails> orderDetails=new ArrayList<>();
+                for(int i=0;i<orderPostList.size();i++){
+                    String Status=orderPostList.get(i).getStatus();
+                    if(Status.equals("OUT FOR SOURCE AIR PORT")||Status.equals("UPLOADING AT AIRCRAFT")){
+                        orderDetails.add(orderPostList.get(i));
+                    }
+                }
+                layoutManager = new LinearLayoutManager(Home.this);
+                layoutManager.setOrientation(RecyclerView.VERTICAL);
+                recyclerView.setLayoutManager(layoutManager);
+                String[] FelixianList={"000001 : Aman Gupta",
+                        "000002 : Aryan Sharma",
+                        "000003 : Arya Vats",
+                        "000004 : Devansh Shrivastav"};
+                AirPortManagerAdapter felixStarAdapter = new AirPortManagerAdapter(orderDetails,FelixianList,getApplicationContext());
+                recyclerView.setAdapter(felixStarAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<OrderDetails>> call, Throwable t) {
+
+            }
+        });
+    }
     private void setCoustmerRecyclerView() {
         Call<List<OrderDetails>> call= RetrofitClient.getService().getOrderData();
         call.enqueue(new Callback<List<OrderDetails>>() {
@@ -165,7 +214,6 @@ public class Home extends AppCompatActivity {
                     startActivity(new Intent(Home.this,RegisterActivity.class));
                     break;
             }
-
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
@@ -182,28 +230,42 @@ public class Home extends AppCompatActivity {
         TextView phone_nav=headerView.findViewById(R.id.phone_nav);
         name_nav.setText(MainActivity.sharedPreferences.getString("Username",portfolio.getUserName()));
         phone_nav.setText(MainActivity.sharedPreferences.getString("PhoneNumber",portfolio.getPhoneNumber()));
+        setRecyclerViewHome();
         switch(role){
-            case "Coustmer":img_nav.setImageResource(R.drawable.user_logo);
+            case "Customer":img_nav.setImageResource(R.drawable.customer);
                 add.setVisibility(View.VISIBLE);
-                setCoustmerRecyclerView();
                 break;
-            case "Felix Star":img_nav.setImageResource(R.drawable.delivery_boy_logo);
-                Toast.makeText(Home.this, "FELIX STAR", Toast.LENGTH_SHORT).show();
+            case "Airport Manager":img_nav.setImageResource(R.drawable.airport_manager);
                 add.setVisibility(View.INVISIBLE);
-                setFelixStarRecyclerView();
                 break;
-            case "Admin":img_nav.setImageResource(R.drawable.manager_logo);
-                Toast.makeText(Home.this, "ADMIN", Toast.LENGTH_SHORT).show();
+            case "Admin":img_nav.setImageResource(R.drawable.manager);
                 add.setVisibility(View.INVISIBLE);
-                setAdminRecyclerView();
+                break;
+            case "Felixian":img_nav.setImageResource(R.drawable.felixian);
+                add.setVisibility(View.INVISIBLE);
                 break;
         }
+    }
+
+    private void setRecyclerViewHome() {
+        switch(role){
+            case "Customer":setCoustmerRecyclerView();
+                break;
+            case "Felixian":setFelixStarRecyclerView();
+                break;
+            case "Admin":setAdminRecyclerView();
+                break;
+            case "Airport Manager":setAirPortManagerRecyclerView();
+                break;
+        }
+
     }
 
     private void hook() {
         navigationView = findViewById(R.id.navigation_drawer);
         recyclerView=findViewById(R.id.user_recycle);
         add=findViewById(R.id.new_order);
-        role=MainActivity.sharedPreferences.getString("Role","Coustmer");
+        role=MainActivity.sharedPreferences.getString("Role","Customer");
+        refreshLayout=findViewById(R.id.SwipeRefreshLayout);
     }
 }

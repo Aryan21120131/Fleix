@@ -55,7 +55,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/PhoneNumber_NonUser_Card"
+                android:id="@+id/RecieverPhoneNumber_NonUser_Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone No."

@@ -20,9 +20,6 @@
             android:name=".Activities.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.PickAddress"
-            android:exported="true" />
-        <activity
             android:name=".Activities.VerifyActivity"
             android:exported="true" />
         <activity

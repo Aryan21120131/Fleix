@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Fleix</string>
+    <string name="length_m">LENGTH(M)</string>
+    <string name="height_m">HEIGHT(M)</string>
+    <string name="width_m">WIDTH(M)</string>
+    <string name="next">NEXT</string>
+    <string name="weight_kg">WEIGHT (KG)</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="pin_code">PIN CODE</string>
+    <string name="value_of_parcel">VALUE OF PARCEL</string>
+    <string name="reciever_details">RECIEVER DETAILS</string>
+    <string name="reciever_name">RECIEVER NAME</string>
+    <string name="reciever_address">RECIEVER ADDRESS</string>
+    <string name="todo">TODO</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
 </resources>

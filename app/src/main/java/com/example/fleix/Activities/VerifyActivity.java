@@ -36,12 +36,12 @@ public class VerifyActivity extends AppCompatActivity {
         Text.setText("OTP SEND TO PHONE NUMBER \n"+Home.portfolio.getPhoneNumber());
         Login.setOnClickListener(view -> {
             setData();
-//            if(pin.getText().toString().equals(String.valueOf(MobileNumber.random_otp))){
-//                setData();
-//                startActivity(new Intent(VerifyActivity.this,Home.class));
-//            }else{
-//                Toast.makeText(VerifyActivity.this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
-//            }
+            if(pin.getText().toString().equals(String.valueOf(MobileNumber.random_otp))){
+                setData();
+                startActivity(new Intent(VerifyActivity.this,Home.class));
+            }else{
+                Toast.makeText(VerifyActivity.this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

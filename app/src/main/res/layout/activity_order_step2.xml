@@ -4,164 +4,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_img1"
     tools:context=".Activities.order_step1">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#64959595"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grad_"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
+        <TextView
+            android:id="@+id/order_step2_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="SENDER DETAILS"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/user_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="30dp"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_weight="1"
+            android:background="@drawable/grad_"
+            android:padding="10dp"
+            android:text="CONTINUE WITH USER DETAILS"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/back_"
-                android:gravity="center"
-                android:orientation="vertical">
+        <EditText
+            android:id="@+id/sender_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="SENDER NAME"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#98FFFFFF" />
 
-                <TextView
-                    android:id="@+id/order_step2_head"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="SENDER DETAILS"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+        <EditText
+            android:id="@+id/sender_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/reciever_location"
+            android:ems="10"
+            android:hint="SENDER ADDRESS"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#98FFFFFF"
+            tools:ignore="TouchTargetSizeCheck" />
 
-                <Button
-                    android:id="@+id/user_details"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/grad_"
-                    android:padding="10dp"
-                    android:text="CONTINUE WITH USER DETAILS"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+        <EditText
+            android:id="@+id/date_picker_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:drawableStart="@drawable/ic_baseline_date_range_24"
+            android:focusable="false"
+            android:hint="SELECT DATE"
+            tools:ignore="TouchTargetSizeCheck" />
 
-                <EditText
-                    android:id="@+id/sender_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="SENDER NAME"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:padding="10dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#98FFFFFF" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="PHONE NUMBER"
+            android:textColor="#FFFFFF" />
 
-                <EditText
-                    android:id="@+id/sender_location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableStart="@drawable/reciever_location"
-                    android:ems="10"
-                    android:hint="SENDER ADDRESS"
-                    android:inputType="textPersonName"
-                    android:padding="10dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#98FFFFFF" />
+        <com.chaos.view.PinView
+            android:id="@+id/sender_number"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="@drawable/grad_"
+            android:minHeight="48dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold|italic"
+            app:hideLineWhenFilled="true"
+            app:itemCount="10"
+            app:itemHeight="40dp"
+            app:itemRadius="13dp"
+            app:itemSpacing="1dp"
+            app:itemWidth="30dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                <EditText
-                    android:id="@+id/date_picker_dialog"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:drawableStart="@drawable/ic_baseline_date_range_24"
-                    android:focusable="false"
-                    android:hint="SELECT DATE" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="PIN CODE"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#98FFFFFF" />
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="PHONE NUMBER"
-                    android:textColor="#FFFFFF" />
+        <com.chaos.view.PinView
+            android:id="@+id/sender_pin"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:itemBackground="@drawable/grad_"
+            android:minHeight="48dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold|italic"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="40dp"
+            app:itemRadius="13dp"
+            app:itemSpacing="1dp"
+            app:itemWidth="30dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                <com.chaos.view.PinView
-                    android:id="@+id/sender_number"
-                    style="@style/PinWidget.PinView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:cursorVisible="true"
-                    android:inputType="number"
-                    android:itemBackground="@drawable/grad_"
-                    android:minHeight="48dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold|italic"
-                    app:hideLineWhenFilled="true"
-                    app:itemCount="10"
-                    app:itemHeight="40dp"
-                    app:itemRadius="13dp"
-                    app:itemSpacing="1dp"
-                    app:itemWidth="30dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="PIN CODE"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#98FFFFFF" />
+    <Button
+        android:id="@+id/POST_ORDER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/sucess_button"
+        android:padding="10dp"
+        android:text="NEXT"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
 
-                <com.chaos.view.PinView
-                    android:id="@+id/sender_pin"
-                    style="@style/PinWidget.PinView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:cursorVisible="true"
-                    android:inputType="number"
-                    android:itemBackground="@drawable/grad_"
-                    android:minHeight="48dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold|italic"
-                    app:hideLineWhenFilled="true"
-                    app:itemCount="6"
-                    app:itemHeight="40dp"
-                    app:itemRadius="13dp"
-                    app:itemSpacing="1dp"
-                    app:itemWidth="30dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-                <Button
-                    android:id="@+id/POST_ORDER"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/grad_"
-                    android:padding="10dp"
-                    android:text="NEXT"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="410dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:srcCompat="@drawable/shipping" />
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/SPEED_ORDER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="410dp"
+        android:background="@drawable/button"
+        android:padding="10dp"
+        android:text="SPEED DELIVERY"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

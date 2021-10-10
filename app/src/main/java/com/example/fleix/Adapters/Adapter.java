@@ -69,8 +69,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.holder> {
             RecieverName_NonUser_Card=itemView.findViewById(R.id.RecieverName_NonUser_Card);
             From_NonUser_card=itemView.findViewById(R.id.From_NonUser_card);
             To_NonUser_Card=itemView.findViewById(R.id.To_NonUser_Card);
-            PhoneNumber_NonUser_Card=itemView.findViewById(R.id.PhoneNumber_NonUser_Card);
+            PhoneNumber_NonUser_Card=itemView.findViewById(R.id.RecieverPhoneNumber_NonUser_Card);
             Update_Status_card=itemView.findViewById(R.id.Update_Status_card);
         }
     }
+
 }

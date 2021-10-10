@@ -18,12 +18,16 @@ import com.example.fleix.R;
 public class order_step1 extends AppCompatActivity {
 
     EditText receiver_name,receiver_loc,length_order,width_order,height_order,weight_order,value_of_parcel;
-    Spinner type_order;
+    Spinner type_order,dimensions_unit_order,Weight_unit_order;
     Button next_step;
     PinView receiver_no,receiver_pin;
 
     String[] types={"Box1","Sphere","Box2"};
-    String type_string,dimensions;
+    String[] dimension_units={"Meter","Centimeter","Inch"};
+    String[] weights_units={"KG","G","POUND"};
+    String type_string,dimensions,
+            DimensionUnity="Meter",
+            Weights="KG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +36,9 @@ public class order_step1 extends AppCompatActivity {
         hook();
 
         SetDropDown();
+        SetDimensionsUnit();
+        SetWeightUnit();
         next_step.setOnClickListener(view -> {
-            startActivity(new Intent(order_step1.this,PickAddress.class));
             if(receiver_name.getText().toString().isEmpty()||
                     receiver_loc.getText().toString().isEmpty()||
                     length_order.getText().toString().isEmpty()||
@@ -60,6 +65,52 @@ public class order_step1 extends AppCompatActivity {
                 order_step2.orderPost.setRecieverPhoneNumber(receiver_no.getText().toString());
                 order_step2.orderPost.setRecieverPinCode(receiver_pin.getText().toString());
                 startActivity(new Intent(order_step1.this,order_step2.class));
+            }
+        });
+    }
+
+    private void SetWeightUnit() {
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,weights_units);
+        Weight_unit_order.setAdapter(adapter);
+        Weight_unit_order.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:Weights="KG";
+                        break;
+                    case 1:Weights="G";
+                        break;
+                    case 2:Weights="POUND";
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void SetDimensionsUnit() {
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,dimension_units);
+        dimensions_unit_order.setAdapter(adapter);
+        dimensions_unit_order.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:DimensionUnity="Meter";
+                        break;
+                    case 1:DimensionUnity="Centimeter";
+                        break;
+                    case 2:DimensionUnity="Inch";
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
@@ -98,5 +149,7 @@ public class order_step1 extends AppCompatActivity {
         next_step=findViewById(R.id.next_step);
         receiver_no=findViewById(R.id.receiver_no);
         receiver_pin=findViewById(R.id.receiver_pin);
+        dimensions_unit_order=findViewById(R.id.dimensions_unit_order);
+        Weight_unit_order=findViewById(R.id.Weight_unit_order);
     }
 }

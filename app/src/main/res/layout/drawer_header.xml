@@ -12,7 +12,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/user_logo" />
+        app:srcCompat="@drawable/customer" />
 
     <TextView
         android:id="@+id/username_nav"
@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="USERNAME"
+        android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
     <TextView
@@ -27,5 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Email" />
+        android:text="Email"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

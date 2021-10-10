@@ -20,14 +20,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/grad_"
+            android:layout_height="300dp"
+            android:background="@drawable/background_img4"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/order_id_user_card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:fontFamily="casual"
                 android:gravity="center"
                 android:text="Order ID"
@@ -37,7 +38,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -101,7 +103,8 @@
             <TextView
                 android:id="@+id/weight_user_card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:fontFamily="casual"
                 android:text="WEIGHT"
                 android:textColor="#FFFFFF"
@@ -111,7 +114,8 @@
             <TextView
                 android:id="@+id/type_user_card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:fontFamily="casual"
                 android:text="TYPE"
                 android:textColor="#FFFFFF"
@@ -121,7 +125,8 @@
             <TextView
                 android:id="@+id/reciever_name_user_card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:fontFamily="casual"
                 android:text="Reciever Name"
                 android:textColor="#FFFFFF"
@@ -131,7 +136,8 @@
             <TextView
                 android:id="@+id/total_cost_user_card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:fontFamily="casual"
                 android:text="TOTAL COST"
                 android:textColor="#FFFFFF"
@@ -141,7 +147,8 @@
             <TextView
                 android:id="@+id/status_user_card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:fontFamily="casual"
                 android:gravity="center"
                 android:text="STATUS"

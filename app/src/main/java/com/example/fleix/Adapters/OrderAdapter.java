@@ -35,11 +35,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         OrderDetails post=orderDetailsList.get(position);
         holder.OrderId.setText(post.getOrderId());
-        holder.pick_location_user_card.setText(post.getPickLocation());
-        holder.drop_location_user_card.setText(post.getDropLocation());
-        holder.weight_user_card.setText(post.getWeight());
-        holder.type_user_card.setText(post.getType());
-        holder.reciever_name_user_card.setText(post.getRecieverName());
+        holder.weight_user_card.setText("Weight"+ post.getWeight());
+        holder.type_user_card.setText("Type: "+post.getType());
+        holder.reciever_name_user_card.setText("Receiver name"+post.getRecieverName());
         holder.total_cost_user_card.setText(post.getTotalCost());
         holder.status_user_card.setText(post.getStatus());
     }
@@ -51,8 +49,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView    OrderId,
-                pick_location_user_card,
-                drop_location_user_card,
                 weight_user_card,
                 type_user_card,
                 reciever_name_user_card,
@@ -61,8 +57,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             OrderId=itemView.findViewById(R.id.order_id_user_card);
-            pick_location_user_card=itemView.findViewById(R.id.pick_location_user_card);
-            drop_location_user_card=itemView.findViewById(R.id.drop_location_user_card);
             weight_user_card=itemView.findViewById(R.id.weight_user_card);
             type_user_card=itemView.findViewById(R.id.type_user_card);
             reciever_name_user_card=itemView.findViewById(R.id.reciever_name_user_card);

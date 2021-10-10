@@ -10,8 +10,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface JSONPlaceHolder {
@@ -28,11 +28,8 @@ public interface JSONPlaceHolder {
     @GET("order")
     Call<List<OrderDetails>> getOrderData();
 
-//    @PATCH("order/{id}")
-//    Call<OrderDetails> update(@Path("id") int id, @Body OrderPost orderPost);
-
-    @PATCH("order/{id}")
-    Call<OrderDetails> update(@Path("id") int id,@Body OrderPost orderPost);
+    @PUT("order/{id}")
+    Call<OrderDetails> update(@Path("id") int id,@Body OrderDetails orderDetails);
 
     @DELETE("order/{id}")
     Call<Void> delete(@Path("id") int id);
